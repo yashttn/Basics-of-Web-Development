@@ -38,7 +38,7 @@ Array.prototype.groupBy = function(prop) {
     }, {})
   }
 
-document.write("(Part3) <br> Grouped the objects of Employee by Age:- <br>")
+document.write("<br> (Part3) <br> Grouped the objects of Employee by Age:- <br>")
 document.write(JSON.stringify(employee_list.groupBy("age")) + "<br>");
 
 // Fetch employees with salary less than 1000 and age greater than 20. 

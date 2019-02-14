@@ -7,25 +7,39 @@
         <script>
             $(document).ready(function(){
                 $("#get_data").click(function(){
-                    $.ajax({url: "https://api.myjson.com/bins/695ra", success: function(result){
-                        $("#container").html("<br> Data:- "+JSON.stringify(result));
+                    $.ajax({url: "https://api.myjson.com/bins/ooz4u", success: function(result){
+                        $("#table_head").append("<th> Name </th> <th> Age </th> <th> DOB </th> <th> Gender </th>")
+                        $("#data").attr({"border":"1", "cellpadding":"5px"})
+                        putJsonInTable(result);
                     }});
                 })
             })
+
+            var putJsonInTable = function(data){
+                data.forEach(function (item) {
+                    $("#table_body").append("<tr> <td>" + item.name + "</td> <td>" + item.age + "</td> <td>" + item.dob + "</td> <td>" + item.gender + "</td></tr>")
+                });
+            }
+
             //JSON data
-            /*{
-                "name": "Yashwant",
-                "age": 20,
-                "dob": "28/03/1998",
-                "gender": "male"
-              }*/
+            //[{"name":"Yashwant","age":20,"dob":"28/03/1998","gender":"male"},{"name":"Dhoni","age":35,"dob":"28/03/1983","gender":"male"},{"name":"Kohli","age":30,"dob":"28/03/1988","gender":"male"},{"name":"Sachin","age":40,"dob":"28/03/1978","gender":"male"},{"name":"Kapil","age":60,"dob":"28/03/1958","gender":"male"}]
         </script>
     </head>
     <body>
         <h2>Solution 15</h2>
         <div id="main">
-            <button id="get_data">Get Data!</button><br>
+            <button id="get_data">Get Data!</button><br><br>
             <div id="container">
+            </div>
+            <div>
+                <table id="data" style="border-collapse: collapse;">
+                    <thead id="table_head">
+
+                    </thead>
+                    <tbody id="table_body">
+                        
+                    </tbody>
+                </table>
             </div>
         </div>
 </body>
